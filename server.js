@@ -1,12 +1,15 @@
-const express = require('express');
-const path = require('path');
-const nomeApp = process.env.npm_package_name;
+const express = require("express");
+const path = require("path");
+
 const app = express();
+var port = process.env.PORT || 3000;
 
-app.use(express.static(`${__dirname}/dist/${nomeApp}`));
+// Serve os arquivos estáticos da pasta dist (gerada pelo ng build)
+app.use(express.static(__dirname + "/dist/marvelAngular"));
 
-app.get('/*', (req, res) => {
-res.sendFile(path.join(`${__dirname}/dist/${nomeApp}/index.html`));
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname + "/dist/marvelAngular/index.html"));
 });
 
-app.listen(process.env.PORT || 8080);
+// Inicia a aplicação pela porta configurada
+app.listen(port);

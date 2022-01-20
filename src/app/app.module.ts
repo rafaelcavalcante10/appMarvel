@@ -8,13 +8,15 @@ import { NavBottomComponent } from './shared/nav-bottom/nav-bottom.component';
 import { FormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    NavBottomComponent
+    NavBottomComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
