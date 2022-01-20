@@ -9,6 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { CharactersComponent } from './components/characters/characters.component';
+import { ComicsComponent } from './components/comics/comics.component';
+import { SeriesComponent } from './components/series/series.component';
+import { DateTimeFormatPipe } from './helpers/date-time-format.pipe';
 
 
 @NgModule({
@@ -16,7 +20,11 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     NavComponent,
     NavBottomComponent,
-    HomeComponent
+    HomeComponent,
+    CharactersComponent,
+    ComicsComponent,
+    SeriesComponent,
+    DateTimeFormatPipe
   ],
   imports: [
     BrowserModule,
