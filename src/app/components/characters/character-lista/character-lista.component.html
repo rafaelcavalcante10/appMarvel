@@ -1,0 +1,62 @@
+<div class="card rounded shadow-sm p-3">
+  <div class="d-flex">
+    <div class="flex-fill pr-3">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Filtro: </div>
+        </div>
+        <input type="text" class="form-control mr-2" placeholder="buscar" [(ngModel)]="Filtro">
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped border border-dark">
+    <thead class="table-dark">
+      <tr>
+        <th class="d-none d-md-table-cell">
+          <button type="button" (click)="MostrarEsconderImagens()" class="btn btn-outline-light btn-sm">
+            <i class="{{isCollapsed ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+            {{isCollapsed ? "exibir" : "ocultar"}}
+          </button>
+        </th>
+        <th>Nome</th>
+        <th class="d-none d-md-table-cell">Comics</th>
+        <th class="d-none d-md-table-cell">Series</th>
+        <th class="d-none d-md-table-cell">Stories</th>
+        <th class="d-none d-md-table-cell">Events</th>
+        <th class="d-none d-md-table-cell">Modificado</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="CharactersFiltrado.length > 0">
+      <tr *ngFor="let character of CharactersFiltrado">
+        <td class="d-none d-md-table-cell">
+          <img
+            src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+            alt="{{character.name}}"
+            width="85px" height="85px"
+            [collapse]="isCollapsed" [isAnimated]="true"
+          >
+        </td>
+        <td>{{character.name}}</td>
+        <td class="d-none d-md-table-cell">{{character.comics.available}}</td>
+        <td class="d-none d-md-table-cell">{{character.series.available}}</td>
+        <td class="d-none d-md-table-cell">{{character.stories.available}}</td>
+        <td class="d-none d-md-table-cell">{{character.events.available}}</td>
+        <td class="d-none d-md-table-cell">{{character.modified | DateFormatPipe}}</td>
+        <td>
+          <button class="btn btn-outline-dark btn-sm mr-2" (click)="goToDetalhesCharacter(character)">
+            <i class="fa fa-search"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="CharactersFiltrado.length == 0">
+      <tr>
+        <td colspan="6" class="text-center">
+          <h4>Nenhum registro encontrado</h4>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<br><br><br>

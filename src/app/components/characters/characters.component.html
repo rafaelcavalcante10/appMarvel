@@ -4,58 +4,5 @@
     [iconClass]="'fa fa-users'"
     [subtitulo]="'Lista de personagens da Marvel'"
   ></app-title>
-  <div class="form-inline">
-    <div class="form-group mb-2">
-      <label class="mr-2">Filtro: </label>
-      <input type="text" placeholder="buscar" [(ngModel)] = "Filtro">
-    </div>
-  </div>
-  <table class="table table-striped" style="border: 0.5px solid black;">
-    <thead class="table-dark">
-      <tr>
-        <th>
-          <button type="button" (click)="MostrarEsconderImagens()" class="btn btn-outline-light btn-sm">
-            <i class="{{isCollapsed ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
-            {{isCollapsed ? "exibir" : "ocultar"}}
-          </button>
-        </th>
-        <th>Nome</th>
-        <th>Comics</th>
-        <th>Series</th>
-        <th>Stories</th>
-        <th>Events</th>
-        <th>Modificado</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody *ngIf="CharactersFiltrado.length > 0">
-      <tr *ngFor="let character of CharactersFiltrado">
-        <td>
-          <img
-            src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
-            alt="{{character.name}}"
-            width="85px" height="85px"
-            [collapse]="isCollapsed" [isAnimated]="true"
-          >
-        </td>
-        <td>{{character.name}}</td>
-        <td>{{character.comics.available}}</td>
-        <td>{{character.series.available}}</td>
-        <td>{{character.stories.available}}</td>
-        <td>{{character.events.available}}</td>
-        <td>{{character.modified | DateFormatPipe}}</td>
-        <td>
-          <button class="btn btn-outline-dark btn-sm mr-2" (click)="goToDetalhesCharacter(character)">Detalhes</button>
-        </td>
-      </tr>
-    </tbody>
-    <tfoot *ngIf="CharactersFiltrado.length == 0">
-      <tr>
-        <td colspan="6" class="text-center">
-          <h4>Nenhum registro encontrado</h4>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
-  <br><br><br>
+  <router-outlet></router-outlet>
 </div>

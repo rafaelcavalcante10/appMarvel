@@ -19,14 +19,13 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { DatePipe } from '@angular/common';
-import { CharacterComponent } from './components/characters/character/character.component';
-import { CharacterComicsComponent } from './components/characters/character/character-comics/character-comics.component';
-import { CharacterSeriesComponent } from './components/characters/character/character-series/character-series.component';
-import { SerieComponent } from './components/series/serie/serie.component';
 import { TitleComponent } from './shared/title/title.component';
 import { ComicListaComponent } from './components/comics/comic-lista/comic-lista.component';
 import { ComicDetalheComponent } from './components/comics/comic-detalhe/comic-detalhe.component';
-
+import { CharacterListaComponent } from './components/characters/character-lista/character-lista.component';
+import { CharacterDetalheComponent } from './components/characters/character-detalhe/character-detalhe.component';
+import { SerieListaComponent } from './components/series/serie-lista/serie-lista.component';
+import { SerieDetalheComponent } from './components/series/serie-detalhe/serie-detalhe.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +37,13 @@ import { ComicDetalheComponent } from './components/comics/comic-detalhe/comic-d
     ComicsComponent,
     SeriesComponent,
     DateTimeFormatPipe,
-    CharacterComponent,
-    CharacterComicsComponent,
-    CharacterSeriesComponent,
-    SerieComponent,
     TitleComponent,
     ComicListaComponent,
-    ComicDetalheComponent
+    ComicDetalheComponent,
+    CharacterListaComponent,
+    CharacterDetalheComponent,
+    SerieListaComponent,
+    SerieDetalheComponent
   ],
   imports: [
     BrowserModule,
