@@ -22,11 +22,10 @@ import { DatePipe } from '@angular/common';
 import { CharacterComponent } from './components/characters/character/character.component';
 import { CharacterComicsComponent } from './components/characters/character/character-comics/character-comics.component';
 import { CharacterSeriesComponent } from './components/characters/character/character-series/character-series.component';
-import { ComicComponent } from './components/comics/comic/comic.component';
-import { ComicCharactersComponent } from './components/comics/comic/comic-characters/comic-characters.component';
-import { ComicSeriesComponent } from './components/comics/comic/comic-series/comic-series.component';
 import { SerieComponent } from './components/series/serie/serie.component';
 import { TitleComponent } from './shared/title/title.component';
+import { ComicListaComponent } from './components/comics/comic-lista/comic-lista.component';
+import { ComicDetalheComponent } from './components/comics/comic-detalhe/comic-detalhe.component';
 
 
 @NgModule({
@@ -42,11 +41,10 @@ import { TitleComponent } from './shared/title/title.component';
     CharacterComponent,
     CharacterComicsComponent,
     CharacterSeriesComponent,
-    ComicComponent,
-    ComicCharactersComponent,
-    ComicSeriesComponent,
     SerieComponent,
-    TitleComponent
+    TitleComponent,
+    ComicListaComponent,
+    ComicDetalheComponent
   ],
   imports: [
     BrowserModule,
