@@ -1,0 +1,38 @@
+<div class="container mt-3" style="border: 0.5px solid black;">
+  <div class="row">
+    <div class="col-9">
+      <h3 style="padding-left: 15px;"><b>Nome: </b>{{character.nome}}</h3>
+    </div>
+    <div class="col-4">
+      <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"
+        alt="{{character.name}}"
+        class="col-md-6 float-md-end mb-3 ms-md-3"
+        style="max-width: 100%;"
+      >
+    </div>
+    <div class="col-6">
+      <h3>
+        <b>Descrição: </b>
+      </h3>
+      <h4>
+        {{character.description == "" ? "No description in API Marvel!":character.description}}
+      </h4>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-5 col-md-6">
+      <app-characterComics></app-characterComics>
+    </div>
+    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+      <app-characterSeries></app-characterSeries>
+    </div>
+  </div>
+</div>
+<div class="container mt-2">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{{character.urls[0].url}}" target="_blank"><button class="btn btn-dark m-2" type="button">Character Site</button></a>
+    <button class="btn btn-dark m-2" type="button" (click)="btnVoltar_Click()">Voltar</button>
+  </div>
+</div>
+<br><br><br>

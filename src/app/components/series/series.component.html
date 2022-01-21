@@ -1,1 +1,48 @@
-<p>series works!</p>
+<div class="container text-center mt-2">
+  <div class="form-inline">
+    <div class="form-group mb-2">
+      <label class="mr-2">Filtro: </label>
+      <input type="text" class="form-control mr-2" placeholder="buscar" [(ngModel)]="filtro">
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>
+          <button type="button" (click)="mostrarEsconderImagem()" class="btn btn-outline-light btn-sm">
+            {{isCollapsed ? "Mostrar" : "Ocultar"}} Imagens
+          </button>
+        </th>
+        <th>Nome</th>
+        <th>Temporada Estreia</th>
+        <th>Ultima Temporada</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="SeriesFiltrado.length > 0">
+      <tr *ngFor="let serie of SeriesFiltrado">
+        <td>
+          <img
+            src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}"
+            alt="{{serie.title}}"
+            width="85px" height="85px"
+            [collapse]="isCollapsed" [isAnimated]="true"
+          >
+        </td>
+        <td>{{serie.title}}</td>
+        <td>{{serie.startYear}}</td>
+        <td>{{serie.endYear}}</td>
+        <td>
+          <button class="btn btn-outline-dark btn-sm mr-2" (click)="goToDetalheSeries(serie)">Detalhes</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="SeriesFiltrado.length == 0">
+      <tr>
+        <td colspan="6" class="text-center">
+          <h4>Nenhum registro encontrado</h4>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

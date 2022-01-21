@@ -1,0 +1,33 @@
+<table class="table table-striped" style="border: 0.5px solid black;">
+  <thead class="thead-dark">
+    <tr>
+      <th>
+        <button type="button" (click)="MostrarEsconderImagens()" class="btn btn-outline-light btn-sm">
+          <i class="{{isCollapsed ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+          {{isCollapsed ? "exibir" : "ocultar"}}
+        </button>
+      </th>
+      <th>Comics</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="characterComics.length > 0">
+    <tr *ngFor="let comic of characterComics">
+      <td>
+        <img
+          src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
+          alt="{{comic.title}}"
+          width="85px" height="85px"
+          [collapse]="isCollapsed" [isAnimated]="true"
+        >
+      </td>
+      <td>{{comic.title}}</td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="characterComics.length == 0">
+    <tr>
+      <td colspan="2" class="text-center">
+        <h4>Nenhum Comics in API Marvel!</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>

@@ -1,1 +1,58 @@
-<p>comics works!</p>
+<div class="container">
+  <app-title
+    [titulo]="'Comics'"
+    [iconClass]="'fa fa-book-open'"
+    [subtitulo]="'Lista de revistinhas da Marvel'"
+  ></app-title>
+  <div class="form-inline">
+    <div class="form-group mb-2">
+      <label class="mr-2">Filtro: </label>
+      <input type="text" class="form-control mr-2" placeholder="buscar" [(ngModel)]="filtro">
+    </div>
+  </div>
+  <table class="table table-striped" style="border: 0.5px solid black;">
+    <thead class="thead-dark">
+      <tr>
+        <th>
+          <button type="button" (click)="mostrarEsconderImagem()" class="btn btn-outline-light btn-sm">
+            <i class="{{isCollapsed ? 'fa fa-eye' : 'fa fa-eye-slash'}}"></i>
+            {{isCollapsed ? "exibir" : "ocultar"}}
+          </button>
+        </th>
+        <th>Titulo</th>
+        <th>Charactetrs</th>
+        <th>Stories</th>
+        <th>Creators</th>
+        <th>Modificado</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="ComicsFiltrado.length > 0">
+      <tr *ngFor="let comic of ComicsFiltrado">
+        <td>
+          <img
+            src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
+            alt="{{comic.title}}"
+            width="85px" height="85px"
+            [collapse]="isCollapsed" [isAnimated]="true"          >
+        </td>
+        <td>{{comic.title}}</td>
+        <td>{{comic.characters.available}}</td>
+        <td>{{comic.stories.available}}</td>
+        <td>{{comic.creators.available}}</td>
+        <td>{{comic.modified | DateFormatPipe}}</td>
+        <td>
+          <button class="btn btn-outline-dark btn-sm mr-2" (click)="goToDetalhesComics(comic)">Detalhes</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="ComicsFiltrado.length == 0">
+      <tr>
+        <td colspan="4" class="text-center">
+          <h4>Nenhum registro encontrado</h4>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <br><br><br>
+</div>

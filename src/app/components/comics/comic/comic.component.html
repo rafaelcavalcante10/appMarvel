@@ -1,0 +1,45 @@
+<div class="container mt-3" style="border: 0.5px solid black;">
+  <div class="row">
+    <div class="col-9">
+      <h3 style="padding-left: 15px;"><b>Título: </b>{{comic.title}}</h3>
+    </div>
+    <div class="col-4">
+      <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}"
+        alt="{{comic.title}}"
+        class="col-md-6 float-md-end mb-3 ms-md-3"
+        style="max-width: 100%;"
+      >
+    </div>
+    <div class="col-6">
+        <h3>
+          <b>Publicação: </b>
+        </h3>
+        <h4>
+          {{comic.dates[0].date | DateFormatPipe}}
+        </h4>
+        <h3>
+          <b>Descrição: </b>
+        </h3>
+        <h4>
+          {{comic.description == "" ? "No description in API Marvel!":comic.description}}
+        </h4>
+
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-5 col-md-6">
+      <app-comicCharacters></app-comicCharacters>
+    </div>
+    <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+      <app-comicSeries></app-comicSeries>
+    </div>
+  </div>
+</div>
+<div class="container mt-2">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{{comic.urls[0].url}}" target="_blank"><button class="btn btn-dark m-2" type="button">Comic Site</button></a>
+    <button class="btn btn-dark m-2" type="button" (click)="btnVoltar_Click()">Voltar</button>
+  </div>
+</div>
+<br><br><br>
