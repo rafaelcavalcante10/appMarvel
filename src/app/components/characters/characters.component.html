@@ -1,11 +1,16 @@
 <div class="container text-center mt-2">
-  <div class="mb-3 row">
-    <label class="col-sm-1 col-form-label">Filtro: </label>
-    <div class="col-sm-1 mt-2">
+  <app-title
+    [titulo]="'Characters'"
+    [iconClass]="'fa fa-users'"
+    [subtitulo]="'Lista de personagens da Marvel'"
+  ></app-title>
+  <div class="form-inline">
+    <div class="form-group mb-2">
+      <label class="mr-2">Filtro: </label>
       <input type="text" placeholder="buscar" [(ngModel)] = "Filtro">
     </div>
   </div>
-  <table class="table table-striped">
+  <table class="table table-striped" style="border: 0.5px solid black;">
     <thead class="table-dark">
       <tr>
         <th>
